@@ -1,0 +1,148 @@
+
+
+truncate table F15E7_labs; 
+truncate table F15E7_empl;
+truncate table F15E7_authr;
+truncate table F15E7_tasks;
+truncate table F15E7_stat;
+
+alter trigger F15E7_labs_AUD_trig disable;
+alter trigger F15E7_labs_PK_trig disable;
+alter trigger F15E7_empl_AUD_trig disable;  
+alter trigger F15E7_empl_PK_trig disable;
+alter trigger F15E7_authr_AUD_trig disable;
+alter trigger F15E7_authr_PK_trig disable;
+alter trigger F15E7_tasks_AUD_trig disable;
+alter trigger F15E7_tasks_PK_trig disable;
+alter trigger F15E7_stat_AUD_trig disable;
+alter trigger F15E7_stat_PK_trig disable;
+
+
+
+
+INSERT INTO F15E7_LABS(LAB_ID, LAB_NAME) 
+VALUES(31, 'ADMIN LAB'); 
+
+INSERT INTO F15E7_LABS(LAB_ID, LAB_NAME) 
+VALUES(32, 'LAB 1'); 
+
+INSERT INTO F15E7_LABS(LAB_ID, LAB_NAME) 
+VALUES(33, 'LAB 2'); 
+
+INSERT INTO F15E7_LABS(LAB_ID, LAB_NAME) 
+VALUES(34, 'LAB 3'); 
+
+INSERT INTO F15E7_LABS(LAB_ID, LAB_NAME) 
+VALUES(35, 'LAB 4'); 
+
+INSERT INTO F15E7_LABS(LAB_ID, LAB_NAME) 
+VALUES(36, 'LAB 5'); 
+
+
+--not sure about active??? 
+
+INSERT INTO F15E7_EMPL(EMP_ID, TYPE, CHAIRPERSON_FLAG, EXEC_DIR_FLAG, SYS_ADMIN_FLAG, LAB_DIR_FLAG, ACTIVE, EMP_NAME, EMP_EMAIL, EMP_OFFICE, EMP_PHONE, EMP_STATUS, STATUS_EFF_DATE, F15E7_LABS_LAB_ID, F15E7_AUTHR_AUTH_ID)
+VALUES(21, 'Employee', 'N', 'N', 'N', 'N', Y, 'Mark Steve', 'mark@gmail.com', 'A245', '212376543', 'A', '11-12-2015', 32, NULL);
+
+INSERT INTO F15E7_EMPL(EMP_ID, TYPE, CHAIRPERSON_FLAG, EXEC_DIR_FLAG, SYS_ADMIN_FLAG, LAB_DIR_FLAG, ACTIVE, EMP_NAME, EMP_EMAIL, EMP_OFFICE, EMP_PHONE, EMP_STATUS, STATUS_EFF_DATE, F15E7_LABS_LAB_ID, F15E7_AUTHR_AUTH_ID) 
+VALUES(22, 'Employee', 'N', 'N', 'N', 'N', Y, 'Mark Steve', 'mark@gmail.com', 'A567', '214341233', 'A', '11-1-2015', 32, NULL);
+
+INSERT INTO F15E7_EMPL(EMP_ID, TYPE, CHAIRPERSON_FLAG, EXEC_DIR_FLAG, SYS_ADMIN_FLAG, LAB_DIR_FLAG, ACTIVE, EMP_NAME, EMP_EMAIL, EMP_OFFICE, EMP_PHONE, EMP_STATUS, STATUS_EFF_DATE, F15E7_LABS_LAB_ID, F15E7_AUTHR_AUTH_ID) 
+VALUES(23, 'Employee', 'N', 'N', 'N', 'N', Y, 'Ben White', 'ben@gmail.com', 'D345', '256431233', 'A', '11-2-2015', 33, NULL);
+
+INSERT INTO F15E7_EMPL(EMP_ID, TYPE, CHAIRPERSON_FLAG, EXEC_DIR_FLAG, SYS_ADMIN_FLAG, LAB_DIR_FLAG, ACTIVE, EMP_NAME, EMP_EMAIL, EMP_OFFICE, EMP_PHONE, EMP_STATUS, STATUS_EFF_DATE, F15E7_LABS_LAB_ID, F15E7_AUTHR_AUTH_ID) 
+VALUES(24, 'Chairperson', 'Y', 'N', 'N', 'N', Y, 'Lisa Ben', 'lisa@gmail.com', 'D367', '214324543', 'A', '11-1-2015', 31, NULL);
+
+INSERT INTO F15E7_EMPL(EMP_ID, TYPE, CHAIRPERSON_FLAG, EXEC_DIR_FLAG, SYS_ADMIN_FLAG, LAB_DIR_FLAG, ACTIVE, EMP_NAME, EMP_EMAIL, EMP_OFFICE, EMP_PHONE, EMP_STATUS, STATUS_EFF_DATE, F15E7_LABS_LAB_ID, F15E7_AUTHR_AUTH_ID) 
+VALUES(25, 'Executive Director', 'N', 'Y', 'N', 'N', Y, 'Charles Brown', 'charles@gmail.com', 'C815', '512349870', 'A', '10-1-2015', 31, NULL);
+
+INSERT INTO F15E7_EMPL(EMP_ID, TYPE, CHAIRPERSON_FLAG, EXEC_DIR_FLAG, SYS_ADMIN_FLAG, LAB_DIR_FLAG, ACTIVE, EMP_NAME, EMP_EMAIL, EMP_OFFICE, EMP_PHONE, EMP_STATUS, STATUS_EFF_DATE, F15E7_LABS_LAB_ID, F15E7_AUTHR_AUTH_ID) 
+VALUES(26, 'Lab System Administerator', 'N', 'N', 'Y', 'N', Y, 'Ashley Tipp', 'ashley@gmail.com', 'C327', '453667439', 'A', '10-1-2015', 32, NULL);
+
+INSERT INTO F15E7_EMPL(EMP_ID, TYPE, CHAIRPERSON_FLAG, EXEC_DIR_FLAG, SYS_ADMIN_FLAG, LAB_DIR_FLAG, ACTIVE, EMP_NAME, EMP_EMAIL, EMP_OFFICE, EMP_PHONE, EMP_STATUS, STATUS_EFF_DATE, F15E7_LABS_LAB_ID, F15E7_AUTHR_AUTH_ID) 
+VALUES(27, 'Lab System Administerator', 'N', 'N', 'Y', 'N', Y, 'Rose Mary', 'rosey@gmail.com', 'D333', '284634564', 'A', '10-2-2015', 33, NULL);
+
+INSERT INTO F15E7_EMPL(EMP_ID, TYPE, CHAIRPERSON_FLAG, EXEC_DIR_FLAG, SYS_ADMIN_FLAG, LAB_DIR_FLAG, ACTIVE, EMP_NAME, EMP_EMAIL, EMP_OFFICE, EMP_PHONE, EMP_STATUS, STATUS_EFF_DATE, F15E7_LABS_LAB_ID, F15E7_AUTHR_AUTH_ID) 
+VALUES(28, 'Lab Director', 'N', 'N', 'N', 'Y', Y, 'John White', 'john@gmail.com', 'B345', '283756482', 'A', '10-3-2015', 32, NULL);
+
+INSERT INTO F15E7_EMPL(EMP_ID, TYPE, CHAIRPERSON_FLAG, EXEC_DIR_FLAG, SYS_ADMIN_FLAG, LAB_DIR_FLAG, ACTIVE, EMP_NAME, EMP_EMAIL, EMP_OFFICE, EMP_PHONE, EMP_STATUS, STATUS_EFF_DATE, F15E7_LABS_LAB_ID, F15E7_AUTHR_AUTH_ID) 
+VALUES(29, 'Lab Director', 'N', 'N', 'N', 'Y', Y, 'Bill Johnson', 'bill@gmail.com', 'A123', '457683203', 'A', '10-4-2015', 33, NULL);
+
+
+
+INSERT INTO F15E7_AUTHR(AUTH_ID, RIGHT, F15E7_EMPL_EMP_ID)
+VALUES(1, 'VIEW', 21);
+
+INSERT INTO F15E7_AUTHR(AUTH_ID, RIGHT, F15E7_EMPL_EMP_ID)
+VALUES(2, 'VIEW', 22);
+
+INSERT INTO F15E7_AUTHR(AUTH_ID, RIGHT, F15E7_EMPL_EMP_ID)
+VALUES(3, 'EDIT', 23);
+
+INSERT INTO F15E7_AUTHR(AUTH_ID, RIGHT, F15E7_EMPL_EMP_ID)
+VALUES(4, 'EDIT', 24);
+
+INSERT INTO F15E7_AUTHR(AUTH_ID, RIGHT, F15E7_EMPL_EMP_ID)
+VALUES(5, 'EDIT', 25);
+
+INSERT INTO F15E7_AUTHR(AUTH_ID, RIGHT, F15E7_EMPL_EMP_ID)
+VALUES(6, 'EDIT', 26);
+
+INSERT INTO F15E7_AUTHR(AUTH_ID, RIGHT, F15E7_EMPL_EMP_ID)
+VALUES(7, 'EDIT', 27);
+
+INSERT INTO F15E7_AUTHR(AUTH_ID, RIGHT, F15E7_EMPL_EMP_ID)
+VALUES(8, 'EDIT', 28);
+
+INSERT INTO F15E7_AUTHR(AUTH_ID, RIGHT, F15E7_EMPL_EMP_ID)
+VALUES(9, 'EDIT', 29);
+
+
+INSERT INTO F15E7_TASKS(TASK_ID, TASK_NAME, TASK_ABBREVIATION, TASK_DESCRIPTION)
+VALUES(60, 'TASK 1', 'T1', 'IT IS FOR LAB 1');
+
+INSERT INTO F15E7_TASKS(TASK_ID, TASK_NAME, TASK_ABBREVIATION, TASK_DESCRIPTION)
+VALUES(61, 'TASK 2', 'T2', 'IT IS FOR LAB 2');
+
+INSERT INTO F15E7_TASKS(TASK_ID, TASK_NAME, TASK_ABBREVIATION, TASK_DESCRIPTION)
+VALUES(62, 'TASK 3', 'T3', 'IT IS FOR LAB 2');
+
+
+INSERT INTO F15E7_STAT(STATUS_ID, RFE_STATUS, DESCRIPTION)
+VALUES(51, 'ENTERED', 'The RFE has been created but has not yet been submitted for approval.');
+
+INSERT INTO F15E7_STAT(STATUS_ID, RFE_STATUS, DESCRIPTION)
+VALUES(52, 'SUBMITTED', 'The RFE has been submitted to the Lab System Administrator for approval.');
+
+INSERT INTO F15E7_STAT(STATUS_ID, RFE_STATUS, DESCRIPTION)
+VALUES(53, 'RETURNED', 'The RFE has been returned for further information or clarification. Once Submitted again, it will follow the same routing as an Entered RFE.');
+
+INSERT INTO F15E7_STAT(STATUS_ID, RFE_STATUS, DESCRIPTION)
+VALUES(54, 'RECALLED', 'The requestor has recalled an RFE that has not yet reached final approval. Once Submitted again, it will follow the same routing as an Entered RFE.');
+
+INSERT INTO F15E7_STAT(STATUS_ID, RFE_STATUS, DESCRIPTION)
+VALUES(55, 'REJECTED', 'The RFE has been rejected and cannot be implemented.');
+
+INSERT INTO F15E7_STAT(STATUS_ID, RFE_STATUS, DESCRIPTION)
+VALUES(56, 'SA APPROVED', 'The Lab System Administrator has approved the RFE; it has been submitted for Lab Director approval.');
+
+INSERT INTO F15E7_STAT(STATUS_ID, RFE_STATUS, DESCRIPTION)
+VALUES(57, 'LD APPROVAL', 'The Lab Director has approved the RFE; it has been submitted for Network Security Panel approval.');
+
+INSERT INTO F15E7_STAT(STATUS_ID, RFE_STATUS, DESCRIPTION)
+VALUES(58, 'CH APPROVAL', 'The Lab Director has approved the RFE; it has been submitted to the Chairperson of Security Panel approval.');
+
+INSERT INTO F15E7_STAT(STATUS_ID, RFE_STATUS, DESCRIPTION)
+VALUES(59, 'FINAL APPROVED', 'The Executive Directors Office has given final approval for the RFE and it may be implemented.');
+
+
+alter trigger F15E7_labs_AUD_trig enable;
+alter trigger F15E7_labs_PK_trig enable;
+alter trigger F15E7_empl_AUD_trig enable;
+alter trigger F15E7_empl_PK_trig enable;
+alter trigger F15E7_authr_AUD_trig enable;
+alter trigger F15E7_authr_PK_trig enable;
+alter trigger F15E7_tasks_AUD_trig enable;
+alter trigger F15E7_tasks_PK_trig enable;
+alter trigger F15E7_stat_AUD_PK_trig disable;
+alter trigger F15E7_stat_PK_trig enable;

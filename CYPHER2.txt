@@ -1,0 +1,43 @@
+conn = connectTo 'jdbc:oracle:thin:@sayonara.microlab.cs.utexas.edu:1521:orcl' 'C##cs347_aa36878' 'orcl_aa36878' 'rdf_mode' 'E7';
+
+Neo4j on conn "CREATE (:pat { PATNO : 7369, PATNAME : 'SMITH', PROBLEM : 'EYE', VISITS : 7, APPDATE : '17-DEC-15', DOCNO : 80})"
+Neo4j on conn "CREATE (:pat { PATNO : 7499, PATNAME : 'ALICE', PROBLEM : 'CANCER', VISITS : 6, APPDATE : '20-FEB-16', DOCNO : 70})"
+Neo4j on conn "CREATE (:pat { PATNO : 7521, PATNAME : 'WARD', PROBLEM : 'THERAPY', VISITS : 9, APPDATE : '22-FEB-16', DOCNO : 60})"
+Neo4j on conn "CREATE (:pat { PATNO : 7566, PATNAME : 'JONES', PROBLEM : 'EYE', VISITS : 2, APPDATE : '02-APR-16', DOCNO : 80})"
+Neo4j on conn "CREATE (:pat { PATNO : 7654, PATNAME : 'MARTHA', PROBLEM : 'TEETH', VISITS : 1, APPDATE : '28-NOV-15', DOCNO : 30})"
+Neo4j on conn "CREATE (:pat { PATNO : 7698, PATNAME : 'BLAKE', PROBLEM : 'CANCER', VISITS : 3, APPDATE : '01-NOV-15', DOCNO : 70})"
+Neo4j on conn "CREATE (:pat { PATNO : 7782, PATNAME : 'CLARA', PROBLEM : 'TEETH', VISITS : 6, APPDATE : '09-JUN-16', DOCNO : 30})"
+Neo4j on conn "CREATE (:pat { PATNO : 7788, PATNAME : 'SCOTT', PROBLEM : 'HEART', VISITS : 7, APPDATE : '09-DEC-15', DOCNO : 20})"
+Neo4j on conn "CREATE (:pat { PATNO : 7839, PATNAME : 'ELLEN', PROBLEM : 'GYNE', VISITS : 0, APPDATE : '17-NOV-15', DOCNO : 50})"
+Neo4j on conn "CREATE (:pat { PATNO : 7844, PATNAME : 'TURNER', PROBLEM : 'HEART', VISITS : 2, APPDATE : '08-SEP-15', DOCNO : 20})"
+Neo4j on conn "CREATE (:pat { PATNO : 7876, PATNAME : 'ADAMS', PROBLEM : 'TEETH', VISITS : 9, APPDATE : '12-JAN-16', DOCNO : 30})"
+Neo4j on conn "CREATE (:pat { PATNO : 7900, PATNAME : 'JAMES', PROBLEM : 'THERAPY', VISITS : 4, APPDATE : '03-DEC-15', DOCNO : 60})"
+Neo4j on conn "CREATE (:pat { PATNO : 7902, PATNAME : 'MARY', PROBLEM : 'GYNE', VISITS : 3, APPDATE : '03-DEC-15', DOCNO : 50})"
+Neo4j on conn "CREATE (:pat { PATNO : 7934, PATNAME : 'CLAIRE', PROBLEM : 'GYNE', VISITS : 9, APPDATE : '23-JAN-16', DOCNO : 50})"
+Neo4j on conn "CREATE (:pat { PATNO : 7935, PATNAME : 'MARK', PROBLEM : 'LIVER SURGERY', VISITS : 3, APPDATE : '23-JAN-16', DOCNO : 10})"
+
+Neo4j on conn "CREATE (:doc { DOCNO : 10, DSPEC : 'SURGEON', LOC : 'NEW YORK' })"
+Neo4j on conn "CREATE (:doc { DOCNO : 20, DSPEC : 'CARDILOGIST', LOC : 'DALLAS' })"
+Neo4j on conn "CREATE (:doc { DOCNO : 30, DSPEC : 'DENTIST', LOC : 'CHICAGO' })"
+Neo4j on conn "CREATE (:doc { DOCNO : 50, DSPEC : 'GYNECOLOGIST', LOC : 'BOSTON' })"
+Neo4j on conn "CREATE (:doc { DOCNO : 60, DSPEC : 'PSYCHIATRIST', LOC : 'BOSTON' })"
+Neo4j on conn "CREATE (:doc { DOCNO : 70, DSPEC : 'ONCOLOGIST', LOC : 'BOSTON' })"
+Neo4j on conn "CREATE (:doc { DOCNO : 80, DSPEC : 'OPHTHALMOLOGIST', LOC : 'BOSTON' })"
+
+
+
+Neo4j on conn "MATCH (a:pat),(b:doc) WHERE a.docno = 10 AND b.docno = 10 CREATE (a)<-[:patients]-(b)"
+Neo4j on conn "MATCH (a:pat),(b:doc) WHERE a.docno = 20 AND b.docno = 20 CREATE (a)<-[:patients]-(b)"
+Neo4j on conn "MATCH (a:pat),(b:doc) WHERE a.docno = 30 AND b.docno = 30 CREATE (a)<-[:patients]-(b)"
+Neo4j on conn "MATCH (a:pat),(b:doc) WHERE a.docno = 50 AND b.docno = 50 CREATE (a)<-[:patients]-(b)"
+Neo4j on conn "MATCH (a:pat),(b:doc) WHERE a.docno = 60 AND b.docno = 60 CREATE (a)<-[:patients]-(b)"
+Neo4j on conn "MATCH (a:pat),(b:doc) WHERE a.docno = 70 AND b.docno = 70 CREATE (a)<-[:patients]-(b)"
+Neo4j on conn "MATCH (a:pat),(b:doc) WHERE a.docno = 80 AND b.docno = 80 CREATE (a)<-[:patients]-(b)"
+
+
+
+
+
+
+
+

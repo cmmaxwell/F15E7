@@ -1,0 +1,44 @@
+
+drop sequence F15E7_rfes_id;
+create sequence F15E7_rfes_id
+start with 60
+increment by 1
+nomaxvalue;
+
+drop view F15E7_rfes_view ;
+
+create view F15E7_rfes_view as
+SELECT *
+FROM F15E7_rfes ;
+
+CREATE OR REPLACE TRIGGER F15E7_rfes_view_trigger
+   INSTEAD OF INSERT ON F15E7_rfes_view
+   DECLARE
+     rfe_id NUMBER; 
+   BEGIN
+     rfe_id := F15E7_rfe_id.nextval;
+     INSERT INTO F15E7_RFES(RFE_ID, EXPLANATION, ALT_PROTECTIONS, CREATED, CREATED_BY, F15E7_TASKS_TASK_ID) 
+     VALUES (
+        rfe_id,
+        :NEW.EXPLANATION, 
+        :NEW.ALT_PROTECTIONS,
+	:OLD.CREATED,
+	:OLD.CREATED_BY,
+	:OLD.F15E7_TASKS_TASK_ID 
+
+     );
+	
+     INSERT INTO F15E7_HISTR(HIST_ID, DATE_MODIFIED, F15E7_RFES_RFE_ID) VALUES (
+		rfe_id, 
+		SYSDATE,
+		rfe_id );
+
+     INSERT INTO F15E7_RFETASKS(RFETASK_ID, EFFECTIVE_DATE, F15E7_RFES_RFE_ID) VALUES (
+		rfe_id, 
+		SYSDATE,
+		rfe_id );
+
+
+
+   END F15E7_rfes_view_trigger;
+/

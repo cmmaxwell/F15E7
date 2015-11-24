@@ -1,10 +1,10 @@
-drop view F15E7_emp_view ;
+drop view F15E7_empl_view ;
 drop view F15E7_chairperson_view ;
 drop view F15E7_exec_dir_view ;
 drop view F15E7_sys_admin_view ;
 drop view F15E7_lab_dir_view ;
 
-create view F15E7_emp_view as
+create view F15E7_empl_view as
 SELECT 
     emp_id,
     type,
@@ -19,13 +19,13 @@ SELECT
     emp_phone,
     emp_status,
     status_eff_date
-FROM F15E7_emp where type = 'Employee' ;
+FROM F15E7_empl where type = 'Employee' ;
 
-create or replace TRIGGER F15E7_emp_trigger
-     INSTEAD OF insert ON F15E7_emp_view
+create or replace TRIGGER F15E7_empl_trigger
+     INSTEAD OF insert ON F15E7_empl_view
      FOR EACH ROW
 BEGIN
-    insert into F15E7_emp( 
+    insert into F15E7_empl( 
 		emp_id,
 		type,
 		exec_dir_flag,
@@ -71,13 +71,13 @@ SELECT
     emp_phone,
     emp_status,
     status_eff_date
-FROM F15E7_emp where type = 'Chairperson' ;
+FROM F15E7_empl where type = 'Chairperson' ;
 
 create or replace TRIGGER F15E7_chairperson_trigger
      INSTEAD OF insert ON F15E7_chairperson_view
      FOR EACH ROW
 BEGIN
-    insert into F15E7_emp( 
+    insert into F15E7_empl( 
 		emp_id,
 		type,
 		exec_dir_flag,
@@ -124,13 +124,13 @@ SELECT
     emp_phone,
     emp_status,
     status_eff_date
-FROM F15E7_emp where type = 'Executive Director' ;
+FROM F15E7_empl where type = 'Executive Director' ;
 
 create or replace TRIGGER F15E7_exec_dir_trigger
      INSTEAD OF insert ON F15E7_exec_dir_view
      FOR EACH ROW
 BEGIN
-    insert into F15E7_emp( 
+    insert into F15E7_empl( 
 		emp_id,
 		type,
 		exec_dir_flag,
@@ -177,13 +177,13 @@ SELECT
     emp_phone,
     emp_status,
     status_eff_date
-FROM F15E7_emp where type = 'Lab System Administerator' ;
+FROM F15E7_empl where type = 'Lab System Administerator' ;
 
 create or replace TRIGGER F15E7_sys_admin_trigger
      INSTEAD OF insert ON F15E7_sys_admin_view
      FOR EACH ROW
 BEGIN
-    insert into F15E7_emp( 
+    insert into F15E7_empl( 
 		emp_id,
 		type,
 		exec_dir_flag,
@@ -230,13 +230,13 @@ SELECT
     emp_phone,
     emp_status,
     status_eff_date
-FROM F15E7_emp where type = 'Lab Director' ;
+FROM F15E7_empl where type = 'Lab Director' ;
 
 create or replace TRIGGER F15E7_lab_dir_trigger
      INSTEAD OF insert ON F15E7_lab_dir_view
      FOR EACH ROW
 BEGIN
-    insert into F15E7_emp( 
+    insert into F15E7_empl( 
 		emp_id,
 		type,
 		exec_dir_flag,
